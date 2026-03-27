@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>꾸꾸미 프로젝트 — ggumee.me</title>
+<meta property="og:title" content="꾸꾸미 프로젝트 — ggumee.me">
+<meta property="og:description" content="꾸미 멤버가 함께 만드는 실전 협업 프로젝트.">
+<meta property="og:url" content="https://ggumee.me/gxg">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://ggumee.me/gxg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ggumee.me — 당신의 2nd 컴퍼니</title>
+<meta name="description" content="Money · Work · AI. 꾸미컴퍼니에 오신 것을 환영합니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Courier+Prime:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black:#080808;--black2:#111;--gold:#C9A84C;--gold-l:#E8C97A;
+  --gold-p:#F5E6C3;--cream:#F0E8D8;--white:#FAFAFA;--gray:#666;--gray-l:#999;
+  --border:rgba(201,168,76,0.2);--border2:rgba(201,168,76,0.1);--card:rgba(255,255,255,0.03);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--cream);font-family:'Noto Sans KR',sans-serif;line-height:1.75;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,8,0.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;}
+.nav-logo{font-family:'Noto Sans KR',sans-serif;font-weight:900;font-size:15px;color:var(--gold);letter-spacing:0.05em;cursor:pointer;background:none;border:none;flex-shrink:0;}
+.nav-menu{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.nav-menu::-webkit-scrollbar{display:none;}
+.nav-btn{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.04em;font-weight:500;color:rgba(240,232,216,0.45);padding:6px 10px;border:none;background:none;cursor:pointer;white-space:nowrap;transition:color 0.2s;border-radius:4px;}
+.nav-btn:hover{color:var(--cream);}
+.nav-btn.active{color:var(--gold);background:rgba(201,168,76,0.1);}
+
+/* PAGES */
+.page{display:none;position:relative;z-index:1;min-height:100vh;}
+.page.active{display:block;}
+
+/* SECTIONS */
+.sec{padding:72px 24px;}.sec-inner{max-width:920px;margin:0 auto;}
+.eyebrow{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.3em;color:var(--gold);margin-bottom:14px;}
+.sec-h{font-weight:900;font-size:clamp(28px,5vw,46px);line-height:1.1;color:var(--white);margin-bottom:14px;}
+.sec-h span{color:var(--gold);}
+.sec-lead{font-size:15px;color:rgba(240,232,216,0.6);line-height:1.9;max-width:580px;margin-bottom:44px;}
+.divider{height:1px;background:var(--border2);}
+
+/* HERO */
+.hero{min-height:auto;display:flex;flex-direction:column;justify-content:flex-start;padding:100px 24px 52px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 60% 40%,rgba(201,168,76,0.1) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 15% 70%,rgba(201,168,76,0.04) 0%,transparent 60%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 70% 40%,black 0%,transparent 80%);}
+.hero-content{position:relative;z-index:2;max-width:920px;margin:0 auto;width:100%;}
+.hero-eyebrow{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.35em;color:var(--gold);margin-bottom:24px;opacity:0;animation:fadeUp 0.8s 0.2s ease forwards;}
+.hero-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(52px,11vw,110px);line-height:0.95;letter-spacing:-0.03em;color:var(--white);margin-bottom:28px;opacity:0;animation:fadeUp 0.8s 0.4s ease forwards;}
+.hero-title .g{color:var(--gold);}
+.hero-title .o{-webkit-text-stroke:1px rgba(201,168,76,0.5);color:transparent;}
+.hero-tagline{font-size:clamp(15px,2vw,18px);color:rgba(240,232,216,0.65);margin-bottom:40px;line-height:1.75;opacity:0;animation:fadeUp 0.8s 0.6s ease forwards;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;opacity:0;animation:fadeUp 0.8s 0.8s ease forwards;}
+.chip{font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;color:var(--gold);border:1px solid var(--border);padding:6px 16px;border-radius:20px;}
+
+/* HUB GRID */
+.hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;background:var(--border2);}
+.hub-card{background:var(--black);padding:36px 28px;cursor:pointer;transition:background 0.3s;border:none;text-align:left;color:inherit;font-family:'Noto Sans KR',sans-serif;width:100%;}
+.hub-card:hover{background:rgba(201,168,76,0.05);}
+.hub-num{font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gold);letter-spacing:0.3em;margin-bottom:10px;}
+.hub-name{font-size:18px;font-weight:900;color:var(--white);margin-bottom:8px;line-height:1.2;}
+.hub-desc{font-size:15px;color:rgba(240,232,216,0.45);line-height:1.7;}
+.hub-arrow{font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gold);margin-top:16px;letter-spacing:0.15em;}
+.hub-card.tbd{opacity:0.35;cursor:default;}.hub-card.tbd:hover{background:var(--black);}
+
+/* SUB-NAV */
+.sub-nav{position:sticky;top:56px;z-index:100;background:rgba(8,8,8,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border2);padding:0 20px;display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;}
+.sub-nav::-webkit-scrollbar{display:none;}
+.sub-btn{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.1em;color:rgba(240,232,216,0.4);padding:13px 12px;border:none;background:none;cursor:pointer;white-space:nowrap;transition:color 0.2s;border-bottom:2px solid transparent;}
+.sub-btn:hover{color:var(--cream);}
+.sub-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
+
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+.card{border:1px solid var(--border);background:var(--card);padding:24px 20px;transition:border-color 0.3s,background 0.3s;}
+.card:hover{border-color:var(--gold);background:rgba(201,168,76,0.04);}
+.card-icon{font-size:22px;margin-bottom:10px;}
+.card-tag{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;}
+.card-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;line-height:1.3;}
+.card-desc{font-size:15px;color:rgba(240,232,216,0.5);line-height:1.7;}
+
+/* LAYOUTS */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+
+/* CALLOUT */
+.callout{border:1px solid var(--border);border-left:3px solid var(--gold);padding:20px 24px;background:rgba(201,168,76,0.04);margin:24px 0;}
+.callout-label{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.2em;color:var(--gold);margin-bottom:6px;}
+.callout p{font-size:15px;color:rgba(240,232,216,0.7);line-height:1.85;}
+
+/* TABLE */
+.tbl{width:100%;border-collapse:collapse;font-size:15px;}
+.tbl th{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.2em;color:var(--gold);font-weight:400;text-align:left;padding:9px 14px;border-bottom:1px solid var(--border);background:rgba(201,168,76,0.04);}
+.tbl td{padding:11px 14px;border-bottom:1px solid var(--border2);color:rgba(240,232,216,0.65);vertical-align:top;}
+.tbl tr:hover td{background:rgba(201,168,76,0.02);}
+
+/* PILLARS */
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border2);}
+.pillar{background:var(--black);padding:32px 24px;transition:background 0.3s;}
+.pillar:hover{background:rgba(201,168,76,0.04);}
+.pillar-num{font-family:'Syne',sans-serif;font-weight:800;font-size:44px;color:rgba(0,0,0,0.08);line-height:1;margin-bottom:12px;}
+.pillar-name{font-size:16px;font-weight:700;color:var(--gold-l);margin-bottom:6px;}
+.pillar-sub{font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gray);letter-spacing:0.1em;margin-bottom:10px;}
+.pillar-desc{font-size:15px;color:rgba(240,232,216,0.5);line-height:1.7;}
+
+/* TIMELINE */
+.timeline{padding-left:24px;position:relative;}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent);}
+.tl-item{position:relative;padding:0 0 40px 20px;}
+.tl-item::before{content:'';position:absolute;left:-4px;top:5px;width:9px;height:9px;border:1px solid var(--gold);border-radius:50%;background:var(--black);}
+.tl-date{font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gold);letter-spacing:0.2em;margin-bottom:5px;}
+.tl-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.tl-desc{font-size:15px;color:rgba(240,232,216,0.5);line-height:1.7;}
+
+/* MEMBERS */
+.member-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border2);}
+.member-cell{background:var(--black);padding:20px 18px;}
+.member-field{font-size:15px;font-weight:700;color:var(--gold-l);margin-bottom:5px;}
+.member-desc{font-size:15px;color:rgba(240,232,216,0.45);line-height:1.6;}
+
+/* SEASONS */
+.season-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;}
+.season-card{border:1px solid var(--border2);padding:18px 16px;background:var(--card);position:relative;overflow:hidden;transition:border-color 0.3s;}
+.season-card:hover{border-color:var(--gold);}
+.season-card.current{border-color:var(--gold);}
+.season-card.current::after{content:'NOW';position:absolute;top:10px;right:10px;font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.2em;color:var(--gold);background:rgba(201,168,76,0.12);padding:2px 5px;}
+.season-card.planned::after{content:'예정';position:absolute;top:10px;right:10px;font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gray);background:rgba(255,255,255,0.05);padding:2px 5px;}
+.season-num{font-family:'Syne',sans-serif;font-weight:800;font-size:36px;color:rgba(201,168,76,0.2);line-height:1;margin-bottom:6px;}
+.season-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.season-desc{font-size:15px;color:rgba(240,232,216,0.4);line-height:1.6;}
+
+/* PROJECTS */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.proj-card{border:1px solid var(--border2);background:var(--card);padding:22px 18px;transition:all 0.3s;}
+.proj-card:hover{border-color:var(--gold);background:rgba(201,168,76,0.03);}
+.proj-cat{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.2em;color:var(--gold);margin-bottom:8px;}
+.proj-title{font-size:15px;font-weight:700;color:var(--white);margin-bottom:7px;line-height:1.3;}
+.proj-members{font-size:15px;color:rgba(240,232,216,0.4);line-height:1.6;}
+.proj-link{display:inline-block;margin-top:8px;font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gold);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border2);}
+.faq-q{width:100%;background:none;border:none;color:inherit;font-family:'Noto Sans KR',sans-serif;padding:18px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:15px;font-weight:700;color:var(--white);text-align:left;gap:16px;}
+.faq-icon{font-family:'Noto Sans KR',sans-serif;font-size:16px;color:var(--gold);flex-shrink:0;transition:transform 0.3s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 0 18px;font-size:15px;color:rgba(240,232,216,0.6);line-height:1.85;}
+.faq-item.open .faq-a{display:block;}
+
+/* BUTTONS */
+.cta-btn{display:inline-flex;align-items:center;gap:7px;background:var(--gold);color:var(--black);font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.15em;font-weight:500;padding:12px 24px;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s,transform 0.2s;}
+.cta-btn:hover{background:var(--gold-l);transform:translateY(-1px);}
+.cta-btn.outline{background:transparent;color:var(--gold);border:1px solid var(--gold);}
+.cta-btn.outline:hover{background:rgba(201,168,76,0.1);}
+
+/* JOIN */
+.join-box{border:1px solid var(--gold);background:rgba(201,168,76,0.04);padding:44px 36px;text-align:center;max-width:460px;margin:0 auto;}
+.join-price{font-family:'Syne',sans-serif;font-weight:800;font-size:64px;color:var(--gold);line-height:1;margin-bottom:4px;}
+.join-note{font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gray);letter-spacing:0.15em;margin-bottom:28px;}
+
+/* PAGE HERO */
+.page-hero{padding:112px 24px 56px;border-bottom:1px solid var(--border2);position:relative;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 50%,rgba(201,168,76,0.06) 0%,transparent 70%);}
+.page-hero-content{position:relative;z-index:1;max-width:920px;margin:0 auto;}
+.page-hero h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(44px,8vw,82px);line-height:0.95;letter-spacing:-0.03em;color:var(--white);margin-bottom:14px;}
+.page-hero h1 span{color:var(--gold);}
+.page-hero p{font-size:15px;color:rgba(240,232,216,0.55);line-height:1.85;max-width:480px;}
+.stat-row{display:flex;gap:40px;flex-wrap:wrap;margin-top:36px;}
+.stat-num{font-family:'Syne',sans-serif;font-weight:800;font-size:40px;color:var(--gold);line-height:1;}
+.stat-label{font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gray);letter-spacing:0.2em;margin-top:2px;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.6s,transform 0.6s;}
+.reveal.vis{opacity:1;transform:translateY(0);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border2);padding:36px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:relative;z-index:1;}
+.footer-logo{font-family:'Noto Sans KR',sans-serif;font-weight:900;font-size:15px;color:var(--gold);}
+.footer-copy{font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gray);letter-spacing:0.1em;}
+
+/* RESPONSIVE */
+@media(max-width:720px){
+  nav{padding:0 14px;}.nav-btn{font-size:15px;padding:5px 8px;}
+  .sec{padding:52px 16px;}
+  .two-col,.three-col,.pillar-grid,.member-grid{grid-template-columns:1fr;}
+  .hub-grid{grid-template-columns:1fr;}
+  .hero{padding:80px 16px 44px;}
+  .page-hero{padding:96px 16px 44px;}
+  footer{padding:28px 16px;}
+  .stat-row{gap:24px;}
+}
+
+/* ══ 꾸꾸미 프로젝트 styles ══ */
+
+#page-project-inner {
+  --bg:        #0A1209;
+  --bg2:       #111D0F;
+  --bg3:       #182415;
+  --lime:      #BAFF47;
+  --lime-dim:  #8DD634;
+  --lime-pale: #E4FFAD;
+  --sage:      #4E7A57;
+  --sage-dim:  #2E4F36;
+  --text:      #DDE8D8;
+  --text-dim:  #7A9A80;
+  --text-mute: #3F5942;
+  --border:    rgba(186,255,71,0.12);
+  --border2:   rgba(186,255,71,0.06);
+  --white:     #F0F5EE;
+}
+
+#page-project-inner *, #page-project-inner *::before, #page-project-inner *::after { margin:0; padding:0; box-sizing:border-box; }
+#page-project-inner { scroll-behavior:smooth; -webkit-text-size-adjust:100%; background: #0A1209; }
+
+#page-project-inner {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* GRAIN TEXTURE */
+#page-project-inner::after {
+  content:'';
+  position:fixed; inset:0; z-index:999;
+  pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.028'/%3E%3C/svg%3E");
+  opacity: 1;
+}
+#page-project-inner /* ─── NAV ─── */
+.nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  padding: 16px 20px;
+  display: flex; justify-content:space-between; align-items:center;
+  background: rgba(10,18,9,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border2);
+}
+#page-project-inner .nav-brand {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size:15px;
+  color: var(--lime);
+  letter-spacing: 0.04em;
+}
+#page-project-inner .nav-pill {
+  font-family: 'Noto Sans KR', monospace;
+  font-size:15px; letter-spacing: 0.2em;
+  color: var(--text-dim);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+#page-project-inner /* ─── HERO ─── */
+.hero {
+  padding: 76px 20px 20px;
+  position: relative; overflow: hidden;
+  min-height: auto;
+  display: flex; flex-direction:column; justify-content:flex-start;
+  background: var(--pj-bg);
+}
+#page-project-inner .hero-bg-text {
+  position: absolute;
+  top: 50%; left: -12px;
+  transform: translateY(-50%) rotate(-6deg);
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size: 108px;
+  color: rgba(186,255,71,0.04);
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+#page-project-inner .hero-bg-circle {
+  position:absolute; top:-40px; right:-40px;
+  width: 160px; height:160px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(186,255,71,0.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+#page-project-inner .hero-label {
+  font-family: 'Noto Sans KR', monospace;
+  font-size:13px; letter-spacing: 0.2em;
+  color: var(--lime);
+  margin-bottom: 6px;
+  opacity:0; animation: up 0.7s 0.1s ease forwards;
+}
+#page-project-inner .hero-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 36px; line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 8px;
+  opacity:0; animation: up 0.7s 0.25s ease forwards;
+}
+#page-project-inner .hero-title .hl { color: var(--lime); }
+#page-project-inner .hero-title .ghost {
+  color: rgba(186,255,71,0.45);
+}
+#page-project-inner .hero-sub {
+  font-size:13px; line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 16px;
+  max-width: 320px;
+  opacity:0; animation: up 0.7s 0.4s ease forwards;
+}
+#page-project-inner .hero-stats {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  opacity:0; animation: up 0.7s 0.55s ease forwards;
+}
+#page-project-inner .hero-stat {
+  background: var(--bg);
+  padding: 12px 10px;
+  text-align: center;
+}
+#page-project-inner .stat-big {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size: 24px;
+  color: var(--lime); line-height: 1;
+  margin-bottom: 4px;
+}
+#page-project-inner .stat-sm {
+  font-family: 'Noto Sans KR', monospace;
+  font-size:15px; letter-spacing: 0.18em;
+  color: var(--text-dim);
+}
+#page-project-inner /* ─── SECTION BASE ─── */
+.section {
+  padding: 64px 20px;
+  border-top: 1px solid var(--border2);
+  background: var(--bg);
+}
+#page-project-inner .sec-eyebrow {
+  font-family: 'Noto Sans KR', monospace;
+  font-size:15px; letter-spacing: 0.3em;
+  color: var(--lime-dim);
+  margin-bottom: 10px;
+}
+#page-project-inner .sec-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size: 28px;
+  line-height: 1.15; color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+#page-project-inner .sec-title .hl { color: var(--lime); }
+#page-project-inner /* ─── INTRO ─── */
+.intro-body {
+  font-size:15px; line-height: 1.95;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+#page-project-inner .intro-quote {
+  border-left: 3px solid var(--lime);
+  padding: 16px 18px;
+  background: var(--bg3);
+  font-size:15px; line-height: 1.8;
+  color: var(--text);
+  font-weight: 500;
+}
+#page-project-inner /* ─── PROJECTS ─── */
+.proj-count-row {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 32px;
+}
+#page-project-inner .proj-count-big {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size: 72px;
+  color: rgba(186,255,71,0.1);
+  line-height: 1; letter-spacing: -0.04em;
+}
+#page-project-inner .proj-list { display: flex; flex-direction: column; gap: 2px; }
+#page-project-inner .proj-card {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-left: 3px solid transparent;
+  padding: 22px 18px;
+  transition: border-color 0.25s, background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+#page-project-inner .proj-card:active { background: var(--bg3); border-left-color: var(--lime); }
+#page-project-inner .proj-card.active { border-left-color: var(--lime); background: var(--bg3); }
+#page-project-inner /* top row */
+.proj-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; gap: 10px;
+  margin-bottom: 12px;
+}
+#page-project-inner .proj-num {
+  font-family: 'Noto Sans KR', monospace;
+  font-size:15px; color: var(--lime-dim);
+  letter-spacing: 0.2em; flex-shrink:0;
+  margin-top: 2px;
+}
+#page-project-inner .proj-cat {
+  font-family: 'Noto Sans KR', monospace;
+  font-size:15px; letter-spacing: 0.18em;
+  color: var(--lime-dim);
+  background: rgba(186,255,71,0.08);
+  border: 1px solid var(--border);
+  padding: 3px 9px;
+  border-radius: 2px;
+  white-space: nowrap; flex-shrink:0;
+}
+#page-project-inner .proj-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700; font-size: 15px;
+  color: var(--white); line-height: 1.35;
+  flex: 1;
+}
+#page-project-inner .proj-name a {
+  color: inherit; text-decoration: none;
+  border-bottom: 1px solid rgba(186,255,71,0.25);
+}
+#page-project-inner /* members */
+.proj-members {
+  display: flex; flex-wrap: wrap; gap: 5px;
+}
+#page-project-inner .mem-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 8px;
+  background: rgba(186,255,71,0.07);
+  border: 1px solid rgba(186,255,71,0.15);
+  border-radius: 2px;
+  font-family: 'Noto Sans KR', monospace;
+  font-size:15px; color: var(--text);
+  letter-spacing: 0.06em;
+  transition: all 0.2s;
+}
+#page-project-inner .mem-chip:active { background: rgba(186,255,71,0.12); color: var(--lime-pale); }
+#page-project-inner .mem-role {
+  color: var(--lime-dim); opacity:0.85;
+}
+#page-project-inner /* highlight cards */
+.proj-card.star {
+  border-left: 3px solid var(--lime);
+  background: linear-gradient(135deg, var(--bg3) 0%, rgba(186,255,71,0.03) 100%);
+}
+#page-project-inner .star-badge {
+  position: absolute; top:0; right:0;
+  background: var(--lime);
+  color: var(--bg);
+  font-family: 'Noto Sans KR', monospace;
+  font-size:15px; letter-spacing: 0.15em;
+  font-weight: 700;
+  padding: 3px 10px;
+}
+#page-project-inner /* ─── MEMBERS GRID ─── */
+.mem-cloud {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 8px;
+}
+#page-project-inner .mem-bubble {
+  display: inline-flex; flex-direction:column; align-items:center;
+  width: 72px;
+  padding: 12px 6px 10px;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 4px;
+  transition: all 0.2s;
+  cursor: default;
+}
+#page-project-inner .mem-bubble:active { border-color: var(--lime); background: var(--bg3); }
+#page-project-inner .mem-n {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size: 20px;
+  color: var(--lime); line-height: 1;
+  margin-bottom: 5px;
+}
+#page-project-inner .mem-r {
+  font-family: 'Noto Sans KR', monospace;
+  font-size:15px; color: var(--text-mute);
+  text-align: center; line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+#page-project-inner /* ─── 2026 PLAN ─── */
+.plan-list {
+  display: flex; flex-direction: column; gap: 2px;
+  margin-top: 8px;
+}
+#page-project-inner .plan-item {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 20px 18px;
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  transition: background 0.2s;
+}
+#page-project-inner .plan-item:active { background: var(--bg3); }
+#page-project-inner .plan-icon {
+  font-size: 20px; flex-shrink:0; margin-top: 1px;
+}
+#page-project-inner .plan-body {}
+#page-project-inner .plan-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700; font-size:15px;
+  color: var(--white); margin-bottom: 5px;
+}
+#page-project-inner .plan-desc {
+  font-size:15px; color: var(--text); line-height: 1.75;
+}
+#page-project-inner /* ─── CLOSING ─── */
+.closing {
+  padding: 72px 20px 100px;
+  text-align: center;
+  border-top: 1px solid var(--border2);
+  background: var(--bg);
+}
+#page-project-inner .closing-eyebrow {
+  font-family: 'Noto Sans KR', monospace;
+  font-size:15px; letter-spacing: 0.3em;
+  color: var(--lime-dim); margin-bottom: 24px;
+}
+#page-project-inner .closing-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800; font-size: 38px;
+  line-height: 1.05; letter-spacing: -0.025em;
+  color: var(--white); margin-bottom: 24px;
+}
+#page-project-inner .closing-title .hl { color: var(--lime); }
+#page-project-inner .closing-title .ghost {
+  color: rgba(186,255,71,0.4);
+}
+#page-project-inner .closing-body {
+  font-size:15px; color: var(--text);
+  line-height: 1.9; margin-bottom: 48px;
+}
+#page-project-inner .closing-line {
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, var(--lime), transparent);
+  margin: 0 auto;
+}
+
+/* ─── FOOTER ─── */
+#page-project-inner footer {
+  border-top: 1px solid var(--border2);
+  padding: 28px 20px;
+  display: flex; flex-direction:column; gap: 6px;
+  background: var(--bg);
+}
+#page-project-inner .footer-brand {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700; font-size:12px;
+  color: var(--lime);
+}
+#page-project-inner .footer-note {
+  font-family: 'Noto Sans KR', monospace;
+  font-size:12px; color: var(--text-dim);
+  letter-spacing: 0.15em;
+}
+#page-project-inner /* ─── DIVIDER ─── */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 32px 0;
+}
+#page-project-inner .divider::before,
+#page-project-inner .divider::after {
+  content:''; flex:1; height:1px;
+  background: var(--border2);
+}
+#page-project-inner .divider span {
+  font-family: 'Noto Sans KR', monospace;
+  font-size:15px; color: var(--text-mute);
+  letter-spacing: 0.2em;
+}
+#page-project-inner /* ─── REVEAL ─── */
+.reveal {
+  opacity:0; transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+#page-project-inner .reveal.on { opacity:1; transform: translateY(0); }
+#page-project-inner /* ─── KEYFRAMES ─── */
+@keyframes up {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* Scrollbar */
+#page-project-inner ::-webkit-scrollbar { width: 3px; }
+#page-project-inner ::-webkit-scrollbar-track { background: var(--bg); }
+#page-project-inner ::-webkit-scrollbar-thumb { background: var(--sage-dim); border-radius:2px; }
+
+
+/* ── MAIN PAGE LIGHT STYLE ── */
+#page-main {
+  background: #FFFFFF;
+  color: #111111;
+}
+#page-main .hero {
+  background: transparent;
+  min-height: auto;
+  padding: 100px 24px 56px;
+  justify-content: flex-start;
+}
+#page-main .hero-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 65% 30%, rgba(201,168,76,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(201,100,20,0.08) 0%, transparent 60%);
+}
+#page-main .hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 90% 90% at 70% 40%, black 0%, transparent 80%);
+}
+#page-main nav {
+  background: rgba(255,255,255,0.94);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+#page-main .hero-eyebrow {
+  color: #9A7520;
+}
+#page-main .hero-title {
+  color: #111111;
+  -webkit-text-stroke: 0;
+}
+#page-main .hero-title .g { color: #C9A84C; }
+#page-main .hero-title .o {
+  -webkit-text-stroke: 2px #C9A84C;
+  color: transparent;
+}
+#page-main .hero-tagline {
+  color: rgba(17,17,17,0.6);
+  font-size: clamp(15px, 2vw, 18px);
+}
+#page-main .chip {
+  color: #9A7520;
+  border-color: rgba(201,168,76,0.35);
+  background: rgba(201,168,76,0.1);
+}
+#page-main .sec {
+  background: #FFFFFF;
+}
+#page-main .sec .eyebrow { color: #9A7520; }
+#page-main .sec .sec-h { color: #111111; }
+#page-main .sec .sec-h span { color: #C9A84C; }
+#page-main .hub-grid { background: rgba(0,0,0,0.08); }
+#page-main .hub-card {
+  background: #FFFFFF;
+  color: #111111;
+}
+#page-main .hub-card:hover { background: #F7F7F7; }
+#page-main .hub-card.tbd { background: #FFFFFF; }
+#page-main .hub-num { color: #C9A84C; }
+#page-main .hub-name { color: #111111; }
+#page-main .hub-desc { color: rgba(17,17,17,0.45); }
+#page-main .hub-arrow { color: #C9A84C; }
+#page-main footer {
+  background: #F2F2F2;
+  border-top: 1px solid rgba(201,168,76,0.2);
+}
+#page-main .footer-copy { color: #9A7520; }
+
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/">ggumee.me</a>
+  <div class="nav-menu">
+    <a class="nav-btn" href="/company">꾸미컴퍼니</a>
+    <a class="nav-btn" href="/morning">모닝컴퍼니</a>
+    <a class="nav-btn active" href="/gxg">꾸꾸미 프로젝트</a>
+  </div>
+</nav>
+<div id="page-project-inner">
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-bg-text">PROJECT</div>
+  <div class="hero-label">01 — GGUMEE x GGUMEE MEMBER COLLECTIVE</div>
+  <h1 class="hero-title">
+    꾸미가<br>
+    함께 <span class="hl">만든</span><br>
+    <span class="ghost">성과들</span>
+  </h1>
+  <p class="hero-sub">
+    꾸미컴퍼니 멤버들이 각자의 전문성을 모아 실제 비즈니스를 함께 수행하는
+    꾸꾸미 ggumee x ggumee 프로젝트.<br><br>
+    AI, 개발, 기획, 디자인, 마케팅이 하나의 팀으로 움직입니다.
+  </p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="stat-big">12</div>
+      <div class="stat-sm">PROJECTS</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-big">25+</div>
+      <div class="stat-sm">MEMBERS</div>
+    </div>
+    <div class="hero-stat">
+      <div class="stat-big">2026</div>
+      <div class="stat-sm">MAIN YEAR</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="section reveal">
+  <div class="sec-eyebrow">00 — ABOUT</div>
+  <h2 class="sec-title">프로젝트 꾸꾸미란<br><span class="hl">무엇인가</span></h2>
+  <p class="intro-body">
+    꾸꾸미(ggumee x ggumee)는 꾸미컴퍼니 멤버들의 자발적 협업 프로젝트입니다.
+    각 멤버는 고유번호로 활동하며, 프로젝트별 역할에 따라 팀을 구성합니다.
+    B2B 클라이언트 프로젝트부터 자체 서비스 모델까지, 함께 기획하고 실행하며 수익을 나눕니다.
+  </p>
+  <div class="intro-quote">
+    2026년, 꾸꾸미 프로젝트를<br>
+    <strong>ggumee.me의 주력 성장 엔진</strong>으로 집중 육성합니다.
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section reveal">
+  <div class="sec-eyebrow">01 — PROJECTS</div>
+  <div class="proj-count-row">
+    <h2 class="sec-title" style="margin-bottom:0">지금까지<br><span class="hl">함께 여기까지</span></h2>
+    <div class="proj-count-big">12</div>
+  </div>
+
+  <div class="proj-list">
+
+    <div class="proj-card star reveal">
+      <div class="star-badge">★ AI</div>
+      <div class="proj-top">
+        <div class="proj-num">P — 01</div>
+        <div class="proj-cat">FINTECH · AI</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">N은행 AI회의록 구축 프로젝트</div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">기획&사업제안</span> 2호</span>
+        <span class="mem-chip"><span class="mem-role">모션그래픽</span> 19호</span>
+        <span class="mem-chip"><span class="mem-role">개발</span> 10호</span>
+        <span class="mem-chip"><span class="mem-role">개발</span> 99호</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="proj-num">P — 02</div>
+        <div class="proj-cat">WEB · DESIGN</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">
+        <a href="https://hkecopro.kr/" target="_blank">한경환경보전 홈페이지 오픈 ↗</a>
+      </div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">클라이언트</span> 9호</span>
+        <span class="mem-chip"><span class="mem-role">기획&스토리보드</span> 16호</span>
+        <span class="mem-chip"><span class="mem-role">웹&모바일디자인</span> 13호</span>
+        <span class="mem-chip"><span class="mem-role">AI/유튜브/QA</span> 62호</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="proj-num">P — 03</div>
+        <div class="proj-cat">BRANDING · CI</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">I사 CI 프로그램</div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">컨셉&디자인</span> 3호</span>
+        <span class="mem-chip"><span class="mem-role">클라이언트커뮤니케이션</span> 7호</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="proj-num">P — 04</div>
+        <div class="proj-cat">EVENT · OFFLINE</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">이호선 교수 특강 등<br>각종 오프라인 행사</div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">케이터링</span> 4호</span>
+        <span class="mem-chip"><span class="mem-role">기획</span> 6호</span>
+        <span class="mem-chip"><span class="mem-role">FD</span> 95호</span>
+        <span class="mem-chip"><span class="mem-role">음악감독</span> 100호</span>
+        <span class="mem-chip"><span class="mem-role">프로듀싱</span> 7호</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="proj-num">P — 05</div>
+        <div class="proj-cat">COMMUNITY · BRAND</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">모닝컴퍼니</div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">프로듀싱</span> 7호</span>
+        <span class="mem-chip"><span class="mem-role">기획&케이터링</span> 62호</span>
+        <span class="mem-chip"><span class="mem-role">기획</span> 5호</span>
+        <span class="mem-chip"><span class="mem-role">기획</span> 11호</span>
+        <span class="mem-chip"><span class="mem-role">회계</span> 9호</span>
+        <span class="mem-chip"><span class="mem-role">바이브코딩</span> 37호</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="proj-num">P — 06</div>
+        <div class="proj-cat">EDU · PROGRAM</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">서경대학교<br>스포츠&테크 인재 양성 프로그램</div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">총괄</span> 6호</span>
+        <span class="mem-chip"><span class="mem-role">기획</span> 7호</span>
+        <span class="mem-chip"><span class="mem-role">기획</span> 16호</span>
+        <span class="mem-chip"><span class="mem-role">바이브코딩</span> 37호</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="proj-num">P — 07</div>
+        <div class="proj-cat">CONSULTING · EDU</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">송강언니 입시커피챗</div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">컨설팅</span> 8호</span>
+        <span class="mem-chip"><span class="mem-role">커뮤니케이션</span> 9호</span>
+        <span class="mem-chip"><span class="mem-role">커뮤니케이션</span> 7호</span>
+        <span class="mem-chip"><span class="mem-role">파트너십</span> 48호</span>
+        <span class="mem-chip"><span class="mem-role">파트너십</span> 31호</span>
+        <span class="mem-chip"><span class="mem-role">파트너십</span> 22호</span>
+        <span class="mem-chip"><span class="mem-role">파트너십</span> 57호</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="proj-num">P — 08</div>
+        <div class="proj-cat">EDU · INTERNAL</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">꾸미캠퍼스 & 팩토리</div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">기획</span> 62호</span>
+        <span class="mem-chip"><span class="mem-role">IT아카데미</span> 14호</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="proj-num">P — 09</div>
+        <div class="proj-cat">E-COMMERCE · OPS</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">M사 온라인 쇼핑몰 구축 & 운영</div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">클라이언트</span> 15호</span>
+        <span class="mem-chip"><span class="mem-role">클라이언트</span> 91호</span>
+        <span class="mem-chip"><span class="mem-role">총괄수행</span> 24호</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="proj-num">P — 10</div>
+        <div class="proj-cat">AI · DEV</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">I사 녹취 솔루션 개발 프로젝트</div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">컨설팅&아키텍처</span> 42호</span>
+        <span class="mem-chip"><span class="mem-role">기획&스토리보드&QA</span> 16호</span>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-top">
+        <div class="proj-num">P — 11</div>
+        <div class="proj-cat">HR · FINTECH</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">금융 IT 인재인력서치</div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">팀플레이</span> 7호</span>
+        <span class="mem-chip"><span class="mem-role">팀플레이</span> 27호</span>
+        <span class="mem-chip"><span class="mem-role">팀플레이</span> 18호</span>
+      </div>
+    </div>
+
+    <div class="proj-card star reveal">
+      <div class="star-badge">★ PB</div>
+      <div class="proj-top">
+        <div class="proj-num">P — 12</div>
+        <div class="proj-cat">AI · PLATFORM</div>
+      </div>
+      <div class="proj-name" style="margin-bottom:12px">꾸미야 AI</div>
+      <div class="proj-members">
+        <span class="mem-chip"><span class="mem-role">기획</span> 62호</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section class="section reveal">
+  <div class="sec-eyebrow">02 — MEMBERS</div>
+  <h2 class="sec-title">함께 한<br><span class="hl">멤버들</span></h2>
+  <div class="mem-cloud">
+    <div class="mem-bubble"><div class="mem-n">2</div><div class="mem-r">기획<br>사업제안</div></div>
+    <div class="mem-bubble"><div class="mem-n">3</div><div class="mem-r">컨셉<br>디자인</div></div>
+    <div class="mem-bubble"><div class="mem-n">4</div><div class="mem-r">케이터링</div></div>
+    <div class="mem-bubble"><div class="mem-n">5</div><div class="mem-r">기획</div></div>
+    <div class="mem-bubble"><div class="mem-n">6</div><div class="mem-r">기획<br>총괄</div></div>
+    <div class="mem-bubble"><div class="mem-n">7</div><div class="mem-r">기획<br>프로듀싱</div></div>
+    <div class="mem-bubble"><div class="mem-n">8</div><div class="mem-r">컨설팅</div></div>
+    <div class="mem-bubble"><div class="mem-n">9</div><div class="mem-r">클라이언트<br>회계</div></div>
+    <div class="mem-bubble"><div class="mem-n">10</div><div class="mem-r">개발</div></div>
+    <div class="mem-bubble"><div class="mem-n">11</div><div class="mem-r">기획</div></div>
+    <div class="mem-bubble"><div class="mem-n">13</div><div class="mem-r">웹<br>디자인</div></div>
+    <div class="mem-bubble"><div class="mem-n">14</div><div class="mem-r">IT<br>아카데미</div></div>
+    <div class="mem-bubble"><div class="mem-n">15</div><div class="mem-r">클라이언트</div></div>
+    <div class="mem-bubble"><div class="mem-n">16</div><div class="mem-r">기획<br>QA</div></div>
+    <div class="mem-bubble"><div class="mem-n">18</div><div class="mem-r">팀플레이</div></div>
+    <div class="mem-bubble"><div class="mem-n">19</div><div class="mem-r">모션<br>그래픽</div></div>
+    <div class="mem-bubble"><div class="mem-n">22</div><div class="mem-r">파트너십</div></div>
+    <div class="mem-bubble"><div class="mem-n">24</div><div class="mem-r">총괄<br>수행</div></div>
+    <div class="mem-bubble"><div class="mem-n">27</div><div class="mem-r">팀플레이</div></div>
+    <div class="mem-bubble"><div class="mem-n">31</div><div class="mem-r">파트너십</div></div>
+    <div class="mem-bubble"><div class="mem-n">37</div><div class="mem-r">바이브<br>코딩</div></div>
+    <div class="mem-bubble"><div class="mem-n">42</div><div class="mem-r">컨설팅<br>아키텍처</div></div>
+    <div class="mem-bubble"><div class="mem-n">48</div><div class="mem-r">파트너십</div></div>
+    <div class="mem-bubble"><div class="mem-n">57</div><div class="mem-r">파트너십</div></div>
+    <div class="mem-bubble"><div class="mem-n">62</div><div class="mem-r">기획<br>AI/QA</div></div>
+    <div class="mem-bubble"><div class="mem-n">91</div><div class="mem-r">클라이언트</div></div>
+    <div class="mem-bubble"><div class="mem-n">95</div><div class="mem-r">FD</div></div>
+    <div class="mem-bubble"><div class="mem-n">99</div><div class="mem-r">개발</div></div>
+    <div class="mem-bubble"><div class="mem-n">100</div><div class="mem-r">음악<br>감독</div></div>
+  </div>
+</section>
+
+<!-- 2026 PLAN -->
+<section class="section reveal">
+  <div class="sec-eyebrow">03 — 2026 방향</div>
+  <h2 class="sec-title">올해 우리가<br><span class="hl">집중할 것들</span></h2>
+  <div class="plan-list">
+    <div class="plan-item reveal">
+      <div class="plan-icon">🤖</div>
+      <div class="plan-body">
+        <div class="plan-title">꾸미야 AI 서비스 확장</div>
+        <div class="plan-desc">AI팀채팅·AI Private 채팅 자체 개발 및 운영. 2026 Q2 엘리트 베타 출시 목표</div>
+      </div>
+    </div>
+    <div class="plan-item reveal">
+      <div class="plan-icon">🏢</div>
+      <div class="plan-body">
+        <div class="plan-title">B2B 클라이언트 확대</div>
+        <div class="plan-desc">AI 회의록·녹취솔루션·CI·웹 구축 등 기업 프로젝트 수주 확대 및 레퍼런스 강화</div>
+      </div>
+    </div>
+    <div class="plan-item reveal">
+      <div class="plan-icon">🎓</div>
+      <div class="plan-body">
+        <div class="plan-title">꾸미캠퍼스 & 교육 프로그램</div>
+        <div class="plan-desc">서경대 프로그램 사례 토대로 기업·대학 연계 AI/테크 교육 모델 정착</div>
+      </div>
+    </div>
+    <div class="plan-item reveal">
+      <div class="plan-icon">⚙️</div>
+      <div class="plan-body">
+        <div class="plan-title">프로젝트 운영 체계화</div>
+        <div class="plan-desc">역할별 온보딩·수익 분배·PM 프로세스 표준화로 협업 품질 향상</div>
+      </div>
+    </div>
+    <div class="plan-item reveal">
+      <div class="plan-icon">🌿</div>
+      <div class="plan-body">
+        <div class="plan-title">꾸꾸미 브랜드 공식화</div>
+        <div class="plan-desc">ggumee.me 내 프로젝트 포트폴리오·멤버 프로필 시스템 구축</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing reveal">
+  <div class="closing-eyebrow">GGUMEE x GGUMEE MEMBER COLLECTIVE</div>
+  <h2 class="closing-title">
+    함께<br>
+    <span class="hl">더 멀리</span><br>
+    <span class="ghost">갑니다</span>
+  </h2>
+  <p class="closing-body">
+    꾸꾸미 ggumee x ggumee 프로젝트는 단순 협업을 넘어,<br>
+    다양한 연령별 업직종별 전문가들이 AI 시대에<br>
+    새로운 커리어와 수익을 함께 만드는<br>
+    실험이자 실천입니다.
+  </p>
+  <div class="closing-line"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">꾸꾸미 ggumee x ggumee 프로젝트</div>
+  <div class="footer-note">GGUMEE.ME PROJECT REPORT · 2026 · MEMBERS ONLY</div>
+</footer>
+  </div>
+</div>
+
+<!-- ══════ 꾸미캠퍼스 ══════ -->
+<script>
+
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  });
+});
+function scrollTo_(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.pageYOffset - 56 - 42;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+function initReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+function initSubNav() {
+  const sBtns = document.querySelectorAll('.sub-btn');
+  if (!sBtns.length) return;
+  const sections = Array.from(sBtns).map(b => {
+    const fn = b.getAttribute('onclick') || '';
+    const m = fn.match(/scrollTo_\('(.+?)'\)/);
+    return m ? document.getElementById(m[1]) : null;
+  }).filter(Boolean);
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const i = sections.indexOf(e.target);
+        if (i >= 0) { sBtns.forEach(b => b.classList.remove('active')); if (sBtns[i]) sBtns[i].classList.add('active'); }
+      }
+    });
+  }, { threshold: 0.25, rootMargin: '-56px 0px 0px 0px' });
+  sections.forEach(s => obs.observe(s));
+}
+initReveal(); initSubNav();
+
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.06, rootMargin: '0px 0px -24px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+document.querySelectorAll('.proj-card').forEach(card => {
+  card.addEventListener('click', () => card.classList.toggle('active'));
+});
+
+</script>
+</body>
+</html>
