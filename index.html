@@ -25,16 +25,16 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--black);color:var(--cream);font-family:'Noto Sans KR',sans-serif;line-height:1.75;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+body{background:#FFFFFF;color:#111111;font-family:'Noto Sans KR',sans-serif;line-height:1.75;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;display:none;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,8,0.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,255,255,0.96);border-bottom:1px solid rgba(0,0,0,0.08) !important;backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;}
 .nav-logo{font-family:'Noto Sans KR',sans-serif;font-weight:900;font-size:16px;color:var(--gold);letter-spacing:0.05em;cursor:pointer;background:none;border:none;flex-shrink:0;}
 .nav-menu{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
 .nav-menu::-webkit-scrollbar{display:none;}
-.nav-btn{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.04em;font-weight:500;color:rgba(240,232,216,0.45);padding:6px 10px;border:none;background:none;cursor:pointer;white-space:nowrap;transition:color 0.2s;border-radius:4px;}
+.nav-btn{font-family:'Noto Sans KR',sans-serif;font-size:12px;letter-spacing:0.02em;font-weight:700;color:#0D0D0D;padding:6px 10px;border:none;background:none;cursor:pointer;white-space:nowrap;transition:color 0.2s;border-radius:4px;}
 .nav-btn:hover{color:var(--gold);}
 .nav-btn.active{color:var(--gold);background:rgba(201,168,76,0.1);}
 
@@ -43,9 +43,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,8,0.94);
 .page.active{display:block;}
 
 /* SECTIONS */
-.sec{padding:72px 24px;}.sec-inner{max-width:920px;margin:0 auto;}
+.sec{padding:72px 24px;background:#FFFFFF;}.sec-inner{max-width:920px;margin:0 auto;}
 .eyebrow{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.3em;color:var(--gold);margin-bottom:14px;}
-.sec-h{font-weight:900;font-size:clamp(28px,5vw,46px);line-height:1.1;color:var(--white);margin-bottom:14px;}
+.sec-h{font-weight:900;font-size:clamp(28px,5vw,46px);line-height:1.1;color:#111;margin-bottom:14px;}
 .sec-h span{color:var(--gold);}
 .sec-lead{font-size:15px;color:rgba(240,232,216,0.6);line-height:1.9;max-width:580px;margin-bottom:44px;}
 .divider{height:1px;background:var(--border2);}
@@ -53,25 +53,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,8,0.94);
 /* HERO */
 .hero{min-height:auto;display:flex;flex-direction:column;justify-content:flex-start;padding:100px 24px 52px;position:relative;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 60% 40%,rgba(201,168,76,0.1) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 15% 70%,rgba(201,168,76,0.04) 0%,transparent 60%);}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 70% 40%,black 0%,transparent 80%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,0,0,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 70% 40%,black 0%,transparent 80%);}
 .hero-content{position:relative;z-index:2;max-width:920px;margin:0 auto;width:100%;}
-.hero-eyebrow{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.35em;color:var(--gold);margin-bottom:24px;opacity:0;animation:fadeUp 0.8s 0.2s ease forwards;}
+.hero-eyebrow{font-family:'Noto Sans KR',sans-serif;font-size:11px;letter-spacing:0.3em;color:#888888;margin-bottom:24px;opacity:0;animation:fadeUp 0.8s 0.2s ease forwards;}
 .hero-title{font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(40px,7vw,78px);line-height:1.08;letter-spacing:-0.04em;color:#0D0D0D;margin-bottom:20px;opacity:0;animation:fadeUp 0.8s 0.4s ease forwards;}
 .hero-title .g{color:var(--gold);}
 .hero-title .o{-webkit-text-stroke:1px rgba(201,168,76,0.5);color:transparent;}
-.hero-tagline{font-size:clamp(15px,2vw,18px);color:rgba(240,232,216,0.65);margin-bottom:40px;line-height:1.75;opacity:0;animation:fadeUp 0.8s 0.6s ease forwards;}
+.hero-tagline{font-size:clamp(14px,1.8vw,17px);color:rgba(17,17,17,0.6);margin-bottom:40px;line-height:1.75;opacity:0;animation:fadeUp 0.8s 0.6s ease forwards;}
 .hero-chips{display:flex;flex-wrap:wrap;gap:8px;opacity:0;animation:fadeUp 0.8s 0.8s ease forwards;}
-.chip{font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.02em;color:var(--gold);border:1px solid var(--border);padding:6px 16px;border-radius:20px;}
+.chip{font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:500;letter-spacing:0.02em;color:#555;border:1px solid #ddd;padding:6px 16px;border-radius:20px;background:#f8f8f8;}
 
 /* HUB GRID */
-.hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;background:var(--border2);}
-.hub-card{background:var(--black);padding:36px 28px;cursor:pointer;transition:background 0.3s;border:none;text-align:left;color:inherit;font-family:'Noto Sans KR',sans-serif;width:100%;}
-.hub-card:hover{background:rgba(201,168,76,0.05);}
-.hub-num{font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gold);letter-spacing:0.3em;margin-bottom:10px;}
-.hub-name{font-size:18px;font-weight:900;color:var(--white);margin-bottom:8px;line-height:1.2;}
-.hub-desc{font-size:15px;color:rgba(240,232,216,0.45);line-height:1.7;}
-.hub-arrow{font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gold);margin-top:16px;letter-spacing:0.15em;}
-.hub-card.tbd{opacity:0.35;cursor:default;}.hub-card.tbd:hover{background:var(--black);}
+.hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px;background:#E5E7EB;}
+.hub-card{background:#FFFFFF;padding:36px 28px;cursor:pointer;transition:background 0.3s;border:none;text-align:left;color:inherit;font-family:'Noto Sans KR',sans-serif;width:100%;}
+.hub-card:hover{background:#F5F7FF;}
+.hub-num{font-family:'Noto Sans KR',sans-serif;font-size:11px;color:#888;letter-spacing:0.15em;margin-bottom:10px;}
+.hub-name{font-size:18px;font-weight:900;color:#111;margin-bottom:8px;line-height:1.2;}
+.hub-desc{font-size:13px;color:#444444;line-height:1.7;}
+.hub-arrow{font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#111;margin-top:16px;letter-spacing:0.1em;font-weight:700;}
+.hub-card.tbd{opacity:0.5;cursor:default;}.hub-card.tbd:hover{background:var(--black);}
 
 /* SUB-NAV */
 .sub-nav{position:sticky;top:56px;z-index:100;background:rgba(8,8,8,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border2);padding:0 20px;display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;}
@@ -184,9 +184,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,8,0.94);
 .reveal.vis{opacity:1;transform:translateY(0);}
 
 /* FOOTER */
-footer{border-top:1px solid var(--border2);padding:36px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:relative;z-index:1;}
+footer{border-top:1px solid #E5E7EB;padding:36px 24px;background:#F9FAFB;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;position:relative;z-index:1;}
 .footer-logo{font-family:'Noto Sans KR',sans-serif;font-weight:900;font-size:15px;color:var(--gold);}
-.footer-copy{font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--gray);letter-spacing:0.1em;}
+.footer-copy{font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#888;letter-spacing:0.05em;}
 
 /* RESPONSIVE */
 @media(max-width:720px){
@@ -667,7 +667,7 @@ footer{border-top:1px solid var(--border2);padding:36px 24px;display:flex;justif
 #page-main .hub-card.tbd { background: #FFFFFF; }
 #page-main .hub-num { color: #C9A84C; }
 #page-main .hub-name { color: #111111; }
-#page-main .hub-desc { color: rgba(17,17,17,0.45); }
+#page-main .hub-desc { color: #444444 !important; }
 #page-main .hub-arrow { color: #C9A84C; }
 #page-main footer {
   background: #F2F2F2;
@@ -716,7 +716,7 @@ footer{border-top:1px solid var(--border2);padding:36px 24px;display:flex;justif
       </p>
       <div style="display:flex;gap:12px;margin-top:8px;flex-wrap:wrap;justify-content:center;">
         <a href="https://open.kakao.com/o/suFoOqki" target="_blank" class="cta-btn" style="background:#111;color:#fff;font-family:'Noto Sans KR',sans-serif;font-size:13px;">카카오톡 문의하기</a>
-        <button class="cta-btn outline" onclick="showPage('company')" style="font-family:'Noto Sans KR',sans-serif;font-size:13px;">꾸미컴퍼니 알아보기</button>
+        <button class="cta-btn outline" href="/company.html" style="font-family:'Noto Sans KR',sans-serif;font-size:13px;">꾸미컴퍼니 알아보기</button>
       </div>
       <div class="hero-chips" style="justify-content:center;margin-top:32px;">
         <div class="chip">프로페셔널 100인</div>
@@ -730,34 +730,34 @@ footer{border-top:1px solid var(--border2);padding:36px 24px;display:flex;justif
       <div class="eyebrow">EXPLORE</div>
       <h2 class="sec-h">ggumee.me의 <span>5가지 공간</span></h2>
       <div class="hub-grid reveal">
-        <button class="hub-card" onclick="showPage('company')">
+        <a class="hub-card" href="/company.html" style="display:block;text-decoration:none;color:inherit;">
           <div class="hub-num">01 — 꾸미컴퍼니</div>
           <div class="hub-name">당신의 2nd 컴퍼니</div>
           <div class="hub-desc">비즈니스 듀오 · 인간 오마카세 · Future Growth. 55명의 전문 파트너들이 함께 만드는 커뮤니티.</div>
           <div class="hub-arrow">EXPLORE →</div>
-        </button>
-        <button class="hub-card" onclick="showPage('morning')">
+        </a>
+        <a class="hub-card" href="/morning.html" style="display:block;text-decoration:none;color:inherit;">
           <div class="hub-num">02 — 모닝컴퍼니</div>
           <div class="hub-name">아침이 바뀌면 인생이 바뀝니다</div>
           <div class="hub-desc">토요일 아침 8시. Morning · Money · Motivation. 시즌별 주제별 online&amp;offline 밋업</div>
           <div class="hub-arrow">EXPLORE →</div>
-        </button>
-        <button class="hub-card" onclick="showPage('project')">
+        </a>
+        <a class="hub-card" href="/gxg.html" style="display:block;text-decoration:none;color:inherit;">
           <div class="hub-num">03 — 꾸꾸미 프로젝트</div>
           <div class="hub-name">멤버가 함께 만드는 실전 성과</div>
           <div class="hub-desc">N은행 AI · 한경환경보전 · 서경대 등 Opportunity Designer 완성. 2026년 주력 확장 예정.</div>
           <div class="hub-arrow">EXPLORE →</div>
-        </button>
-        <button class="hub-card" onclick="showPage('elite')">
+        </a>
+        <a class="hub-card" href="/elite.html" style="display:block;text-decoration:none;color:inherit;">
           <div class="hub-num">05 — 꾸미 엘리트</div>
           <div class="hub-name">프리미엄 비즈니스 파인다이닝</div>
           <div class="hub-desc">꾸미컴퍼니의 모든 핵심가치에 접근. 지금 합류하세요.</div>
           <div class="hub-arrow">EXPLORE →</div>
-        </button>
+        </a>
       </div>
     </div>
   </section>
-  <section style="padding:48px 24px;background:#fff;border-top:1px solid rgba(0,0,0,0.07);text-align:center;">
+  <section style="padding:48px 24px;background:#F9FAFB;border-top:1px solid #E5E7EB;text-align:center;">
     <div style="max-width:480px;margin:0 auto;">
       <p style="font-size:13px;color:#666;margin-bottom:8px;font-family:'Noto Sans KR',sans-serif;">꾸미컴퍼니에 들어오고 싶으신가요?</p>
       <h3 style="font-size:20px;font-weight:700;color:#111;margin-bottom:24px;font-family:'Noto Sans KR',sans-serif;">가입 문의하기</h3>
