@@ -1,0 +1,7 @@
+name = "ggumee"
+compatibility_date = "2026-04-04"
+
+[assets]
+directory = "."
+html_handling = "none"
+not_found_handling = "none"
