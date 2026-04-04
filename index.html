@@ -14,6 +14,7 @@
 <title>ggumee.me — 당신의 2nd 컴퍼니</title>
 <meta name="description" content="Money · Work · AI. 꾸미컴퍼니에 오신 것을 환영합니다.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Courier+Prime:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
@@ -30,11 +31,11 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,8,0.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;}
-.nav-logo{font-family:'Noto Sans KR',sans-serif;font-weight:900;font-size:15px;color:var(--gold);letter-spacing:0.05em;cursor:pointer;background:none;border:none;flex-shrink:0;}
+.nav-logo{font-family:'Noto Sans KR',sans-serif;font-weight:900;font-size:16px;color:var(--gold);letter-spacing:0.05em;cursor:pointer;background:none;border:none;flex-shrink:0;}
 .nav-menu{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
 .nav-menu::-webkit-scrollbar{display:none;}
 .nav-btn{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.04em;font-weight:500;color:rgba(240,232,216,0.45);padding:6px 10px;border:none;background:none;cursor:pointer;white-space:nowrap;transition:color 0.2s;border-radius:4px;}
-.nav-btn:hover{color:var(--cream);}
+.nav-btn:hover{color:var(--gold);}
 .nav-btn.active{color:var(--gold);background:rgba(201,168,76,0.1);}
 
 /* PAGES */
@@ -55,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,8,0.94);
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(201,168,76,0.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(201,168,76,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 70% 40%,black 0%,transparent 80%);}
 .hero-content{position:relative;z-index:2;max-width:920px;margin:0 auto;width:100%;}
 .hero-eyebrow{font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:0.35em;color:var(--gold);margin-bottom:24px;opacity:0;animation:fadeUp 0.8s 0.2s ease forwards;}
-.hero-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(52px,11vw,110px);line-height:0.95;letter-spacing:-0.03em;color:var(--white);margin-bottom:28px;opacity:0;animation:fadeUp 0.8s 0.4s ease forwards;}
+.hero-title{font-family:'Inter',sans-serif;font-weight:900;font-size:clamp(40px,7vw,78px);line-height:1.08;letter-spacing:-0.04em;color:#0D0D0D;margin-bottom:20px;opacity:0;animation:fadeUp 0.8s 0.4s ease forwards;}
 .hero-title .g{color:var(--gold);}
 .hero-title .o{-webkit-text-stroke:1px rgba(201,168,76,0.5);color:transparent;}
 .hero-tagline{font-size:clamp(15px,2vw,18px);color:rgba(240,232,216,0.65);margin-bottom:40px;line-height:1.75;opacity:0;animation:fadeUp 0.8s 0.6s ease forwards;}
@@ -605,9 +606,10 @@ footer{border-top:1px solid var(--border2);padding:36px 24px;display:flex;justif
 }
 #page-main .hero {
   background: transparent;
-  min-height: auto;
-  padding: 100px 24px 56px;
-  justify-content: flex-start;
+  min-height: calc(100vh - 56px);
+  padding: 80px 24px 60px;
+  justify-content: center;
+  align-items: center;
 }
 #page-main .hero-bg {
   background:
@@ -621,15 +623,20 @@ footer{border-top:1px solid var(--border2);padding:36px 24px;display:flex;justif
   mask-image: radial-gradient(ellipse 90% 90% at 70% 40%, black 0%, transparent 80%);
 }
 #page-main nav {
-  background: rgba(255,255,255,0.94);
-  border-bottom: 1px solid rgba(201,168,76,0.2);
+  background: rgba(255,255,255,0.96);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
+#page-main .nav-btn { color: #0D0D0D !important; font-weight: 700 !important; }
+#page-main .nav-btn:hover { color: #2563EB !important; }
+#page-main .nav-btn.active { color: #2563EB !important; background: rgba(37,99,235,0.06); }
+#page-main .nav-btn:last-child { color: #2563EB !important; }
 #page-main .hero-eyebrow {
   color: #9A7520;
 }
 #page-main .hero-title {
-  color: #111111;
+  color: #0D0D0D;
   -webkit-text-stroke: 0;
+  text-align: center;
 }
 #page-main .hero-title .g { color: #C9A84C; }
 #page-main .hero-title .o {
@@ -668,6 +675,21 @@ footer{border-top:1px solid var(--border2);padding:36px 24px;display:flex;justif
 }
 #page-main .footer-copy { color: #9A7520; }
 
+
+/* ── 멤버 번호 그리드 ── */
+.mb-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin-top:24px;}
+.mb-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;border-radius:8px;font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:700;}
+.mb-occupied{background:rgba(201,168,76,0.2);color:var(--gold);border:1px solid rgba(201,168,76,0.4);}
+.mb-empty{background:rgba(255,255,255,0.04);color:rgba(240,232,216,0.2);border:1px solid rgba(255,255,255,0.05);}
+.mb-결번{background:rgba(255,100,100,0.1);color:rgba(255,120,120,0.5);border:1px solid rgba(255,100,100,0.2);}
+.mb-legend{display:flex;gap:24px;margin-bottom:8px;flex-wrap:wrap;}
+.mb-leg-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(240,232,216,0.6);}
+.mb-dot{width:12px;height:12px;border-radius:3px;display:inline-block;}
+.mb-dot.occupied{background:rgba(201,168,76,0.4);}
+.mb-dot.empty{background:rgba(255,255,255,0.08);}
+.mb-dot.결번{background:rgba(255,100,100,0.2);}
+@media(max-width:720px){.mb-cell{font-size:10px;}.mb-grid{gap:4px;}}
+
 </style>
 </head>
 <body>
@@ -676,19 +698,30 @@ footer{border-top:1px solid var(--border2);padding:36px 24px;display:flex;justif
   <div class="nav-menu">
     <a class="nav-btn" href="/company.html">꾸미컴퍼니</a>
     <a class="nav-btn" href="/morning.html">모닝컴퍼니</a>
-    <a class="nav-btn" href="/gxg.html">꾸꾸미 프로젝트</a>
+    <a class="nav-btn" href="/gxg.html" style="color:#2563EB;">꾸꾸미 프로젝트</a>
   </div>
 </nav>
 <section class="hero">
     <div class="hero-bg"></div><div class="hero-grid"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">GGUMEE.ME — 당신의 2ND 컴퍼니</div>
-      <h1 class="hero-title">MONEY<br><span class="g">WORK</span><br><span class="o">AI</span></h1>
-      <p class="hero-tagline">커리어 전환점의 40~50대 전문가들이<br>AI와 동료 네트워크를 통해 새로운 기회를 만드는 플랫폼</p>
-      <div class="hero-chips">
-        <div class="chip">꾸미컴퍼니</div>
-        <div class="chip">모닝컴퍼니</div>
-        <div class="chip">꾸꾸미 프로젝트</div>
+    <div class="hero-content" style="text-align:center;display:flex;flex-direction:column;align-items:center;">
+      <div class="hero-eyebrow" style="margin-bottom:20px;">GGUMEE.ME — 당신의 2ND 컴퍼니</div>
+      <h1 class="hero-title" style="text-align:center;">
+        MONEY · WORK · <span style="color:#2563EB;">AI</span>
+      </h1>
+      <p style="font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(18px,3vw,28px);color:#111;text-align:center;margin-bottom:16px;letter-spacing:-0.02em;opacity:0;animation:fadeUp 0.8s 0.55s ease forwards;">
+        새로운 기회와 <span style="color:#2563EB;">경제 공동체</span>
+      </p>
+      <p class="hero-tagline" style="max-width:520px;text-align:center;font-size:clamp(14px,1.8vw,17px);color:rgba(17,17,17,0.6);">
+        커리어 전환점의 40~50대 전문가들이 AI와 동료 네트워크를 통해 새로운 기회를 만드는 플랫폼, 경제 공동체
+      </p>
+      <div style="display:flex;gap:12px;margin-top:8px;flex-wrap:wrap;justify-content:center;">
+        <a href="https://open.kakao.com/o/suFoOqki" target="_blank" class="cta-btn" style="background:#111;color:#fff;font-family:'Noto Sans KR',sans-serif;font-size:13px;">카카오톡 문의하기</a>
+        <button class="cta-btn outline" onclick="showPage('company')" style="font-family:'Noto Sans KR',sans-serif;font-size:13px;">꾸미컴퍼니 알아보기</button>
+      </div>
+      <div class="hero-chips" style="justify-content:center;margin-top:32px;">
+        <div class="chip">프로페셔널 100인</div>
+        <div class="chip">Opportunity Designer</div>
+        <div class="chip">Since 2025 March</div>
       </div>
     </div>
   </section>
@@ -700,25 +733,25 @@ footer{border-top:1px solid var(--border2);padding:36px 24px;display:flex;justif
         <button class="hub-card" onclick="showPage('company')">
           <div class="hub-num">01 — 꾸미컴퍼니</div>
           <div class="hub-name">당신의 2nd 컴퍼니</div>
-          <div class="hub-desc">비즈니스 듀오 · 인간 오마카세 · Future Growth. 52명의 혁신가들이 함께 만드는 커뮤니티.</div>
+          <div class="hub-desc">비즈니스 듀오 · 인간 오마카세 · Future Growth. 55명의 전문 파트너들이 함께 만드는 커뮤니티.</div>
           <div class="hub-arrow">EXPLORE →</div>
         </button>
         <button class="hub-card" onclick="showPage('morning')">
           <div class="hub-num">02 — 모닝컴퍼니</div>
           <div class="hub-name">아침이 바뀌면 인생이 바뀝니다</div>
-          <div class="hub-desc">매주 토요일 아침 8시. Morning · Money · Motivation. Season 4 바이브 코딩 진행 중.</div>
+          <div class="hub-desc">토요일 아침 8시. Morning · Money · Motivation. 시즌별 주제별 online&amp;offline 밋업</div>
           <div class="hub-arrow">EXPLORE →</div>
         </button>
         <button class="hub-card" onclick="showPage('project')">
           <div class="hub-num">03 — 꾸꾸미 프로젝트</div>
           <div class="hub-name">멤버가 함께 만드는 실전 성과</div>
-          <div class="hub-desc">N은행 AI · 한경환경보전 · 서경대 등 11개 프로젝트 완성. 2026년 주력 확장 예정.</div>
+          <div class="hub-desc">N은행 AI · 한경환경보전 · 서경대 등 Opportunity Designer 완성. 2026년 주력 확장 예정.</div>
           <div class="hub-arrow">EXPLORE →</div>
         </button>
         <button class="hub-card" onclick="showPage('elite')">
           <div class="hub-num">05 — 꾸미 엘리트</div>
-          <div class="hub-name">프리미엄 평생 멤버십</div>
-          <div class="hub-desc">꾸미컴퍼니의 모든 가치에 평생 접근. 지금 합류하세요.</div>
+          <div class="hub-name">프리미엄 비즈니스 파인다이닝</div>
+          <div class="hub-desc">꾸미컴퍼니의 모든 핵심가치에 접근. 지금 합류하세요.</div>
           <div class="hub-arrow">EXPLORE →</div>
         </button>
       </div>
@@ -726,21 +759,27 @@ footer{border-top:1px solid var(--border2);padding:36px 24px;display:flex;justif
   </section>
   <section style="padding:48px 24px;background:#fff;border-top:1px solid rgba(0,0,0,0.07);text-align:center;">
     <div style="max-width:480px;margin:0 auto;">
-      <p style="font-size:13px;color:#666;margin-bottom:8px;font-family:'Noto Sans KR',sans-serif;">꾸미컴퍼니에 합류하고 싶으신가요?</p>
+      <p style="font-size:13px;color:#666;margin-bottom:8px;font-family:'Noto Sans KR',sans-serif;">꾸미컴퍼니에 들어오고 싶으신가요?</p>
       <h3 style="font-size:20px;font-weight:700;color:#111;margin-bottom:24px;font-family:'Noto Sans KR',sans-serif;">가입 문의하기</h3>
       <a href="https://open.kakao.com/o/suFoOqki" target="_blank"
         style="display:inline-flex;align-items:center;gap:10px;background:#FEE500;color:#111;font-family:'Noto Sans KR',sans-serif;font-size:15px;font-weight:700;padding:14px 32px;border-radius:8px;text-decoration:none;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="#111"><path d="M12 3C6.477 3 2 6.477 2 10.5c0 2.685 1.614 5.04 4.043 6.396L5 21l4.896-2.604C10.567 18.46 11.27 18.5 12 18.5c5.523 0 10-3.477 10-8S17.523 3 12 3z"/></svg>
-        카카오 오픈채팅 바로가기
+        카카오톡 문의하기
       </a>
     </div>
   </section>
-  <footer><div class="footer-logo">ggumee.me</div><div class="footer-copy">© 2026 꾸미컴퍼니. All rights reserved.</div></footer>
+  <footer><div class="footer-logo">ggumee.me</div><div class="footer-copy">© 2025-2026 꾸미컴퍼니. All rights reserved.</div></footer>
 </div>
 
 <!-- ══════ 꾸미컴퍼니 ══════ -->
 <script>
 
+function scrollTo_(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.pageYOffset - 56 - 42;
+  window.scrollTo({ top, behavior: 'smooth' });
+}
 document.querySelectorAll('.faq-q').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.closest('.faq-item');
@@ -749,12 +788,6 @@ document.querySelectorAll('.faq-q').forEach(btn => {
     if (!open) item.classList.add('open');
   });
 });
-function scrollTo_(id) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const top = el.getBoundingClientRect().top + window.pageYOffset - 56 - 42;
-  window.scrollTo({ top, behavior: 'smooth' });
-}
 function initReveal() {
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -768,7 +801,7 @@ function initSubNav() {
   if (!sBtns.length) return;
   const sections = Array.from(sBtns).map(b => {
     const fn = b.getAttribute('onclick') || '';
-    const m = fn.match(/scrollTo_[(]'(.+?)'[)]/);
+    const m = fn.match(/scrollTo_('(.+?)')/);
     return m ? document.getElementById(m[1]) : null;
   }).filter(Boolean);
   const obs = new IntersectionObserver(entries => {
